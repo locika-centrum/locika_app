@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../providers/theme_provider.dart';
-import '../widgets/home_button.dart';
+import '../widgets/home_navigation.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -11,8 +11,6 @@ class ChatScreen extends StatelessWidget {
     return Theme(
       data: AppThemes.violetTheme,
       child: Scaffold(
-        floatingActionButton: HomeButton(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
         appBar: AppBar(
           title: const Text('Chat'),
           automaticallyImplyLeading: false,
@@ -20,6 +18,7 @@ class ChatScreen extends StatelessWidget {
         body: const Center(
           child: Text('Tady bude Chat'),
         ),
+        bottomNavigationBar: const HomeNavigation(),
       ),
     );
   }

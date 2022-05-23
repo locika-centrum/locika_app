@@ -23,14 +23,14 @@ class SecretButton extends StatelessWidget {
           return AlertDialog(
             title: const Text("Čas na pauzu?"),
             actions: [
-              ElevatedButton(
+              TextButton(
                   onPressed: () {
                     Navigator.pop(context, false);
                   },
                   child: const Text('Zpět')),
-              ElevatedButton(
+              TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/choices');
+                    Navigator.popAndPushNamed(context, '/choices');
                   },
                   child: const Text('OK')),
             ],

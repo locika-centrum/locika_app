@@ -9,7 +9,7 @@ class GameScore extends StatelessWidget {
       '0 : 0',
       style: TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: 18,
+        fontSize: 25,
       ),
     );
   }

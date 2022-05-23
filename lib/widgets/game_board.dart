@@ -11,47 +11,47 @@ class GameBoard extends StatefulWidget {
 }
 
 class _GameBoardState extends State<GameBoard> {
-  Game game = Game();
+  final Game _game = Game();
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          AspectRatio(
-            aspectRatio: (game.boardColSize / game.boardRowSize),
-            child: Container(
-              padding: const EdgeInsets.all(8.0),
-              margin: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Theme.of(context).primaryColor,
-                  width: 2.0,
-                ),
-              ),
-              child: MediaQuery.removePadding(
-                context: context,
-                removeTop: true,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: game.boardColSize,
-                  ),
-                  itemBuilder: _buildBoardItems,
-                  itemCount: game.boardRowSize * game.boardColSize,
-                ),
-              ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(8.0),
+          margin: const EdgeInsets.all(8.0),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Theme.of(context).primaryColor,
+              width: 2.0,
             ),
-          )
-        ],
-      ),
+          ),
+          child: Center(
+            child: StreamBuilder(
+              stream: _game.onUpdate,
+              builder: (context, snapshot) {
+                developer.log('EVENT: ${snapshot.data.toString()}');
+                return GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: _game.boardColSize,
+                  ),
+                  shrinkWrap: true,
+                  itemCount: _game.boardRowSize * _game.boardColSize,
+                  itemBuilder: _buildBoardItems,
+                );
+              },
+            ),
+          ),
+        ),
+      ],
     );
   }
 
   Widget _buildBoardItems(BuildContext context, int index) {
     int row, col = 0;
-    row = (index / game.boardColSize).floor();
-    col = (index % game.boardColSize);
+    row = (index / _game.boardColSize).floor();
+    col = (index % _game.boardColSize);
     return GestureDetector(
       onTap: () => _gridItemTapped(row, col),
       child: GridTile(
@@ -68,7 +68,7 @@ class _GameBoardState extends State<GameBoard> {
   }
 
   Widget _buildBoardItem(int row, int col) {
-    switch (game.board[row][col]) {
+    switch (_game.board[row][col]) {
       case 0:
         return const Icon(
           Icons.panorama_fish_eye,
@@ -86,10 +86,6 @@ class _GameBoardState extends State<GameBoard> {
 
   // TODO: implement AI for computer move
   void _gridItemTapped(int row, int col) {
-    developer.log('Tapped $row, $col');
-    game.move(row, col);
-    developer.log(game.board.toString());
-
-    setState(() {});
+    _game.recordMove(row, col);
   }
 }

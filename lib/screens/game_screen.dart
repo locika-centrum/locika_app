@@ -12,8 +12,13 @@ class GameScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pišiškvorky'),
         automaticallyImplyLeading: false,
+        title: const Text(
+          'Pišiškvorky',
+          style: TextStyle(
+            fontSize: 35,
+          ),
+        ),
       ),
       floatingActionButton: const SecretButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,

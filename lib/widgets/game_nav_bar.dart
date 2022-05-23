@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:developer' as developer;
+
+import '../providers/game.dart';
 
 class GameNavigation extends StatelessWidget {
   const GameNavigation({Key? key}) : super(key: key);
@@ -14,19 +15,20 @@ class GameNavigation extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                developer.log('New game tap');
+                Navigator.pop(context);
               },
               child: const Icon(
-                Icons.refresh,
+                Icons.home,
                 size: 35,
               ),
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/settings');
+                Game game = Game();
+                game.newGame();
               },
               child: const Icon(
-                Icons.settings,
+                Icons.refresh,
                 size: 35,
               ),
             )

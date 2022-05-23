@@ -7,7 +7,7 @@ class HomeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       child: const Icon(Icons.home),
-      onPressed: () => Navigator.pushReplacementNamed(context, '/game'),
+      onPressed: () => Navigator.pop(context, false), // popAndPushNamed(context, '/game'), // .pushNamed(context, '/game'),
     );
   }
 }
