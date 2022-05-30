@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:locika_app/widgets/game_widget.dart';
 
-import '../widgets/game_board.dart';
 import '../widgets/game_nav_bar.dart';
 import '../widgets/secret_button.dart';
-import '../widgets/game_score.dart';
 
 class GameScreen extends StatelessWidget {
   const GameScreen({Key? key}) : super(key: key);
@@ -22,20 +21,8 @@ class GameScreen extends StatelessWidget {
       ),
       floatingActionButton: const SecretButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      body: Center(
-        child: Column(
-          children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  GameBoard(),
-                ],
-              ),
-            ),
-            const GameScore(),
-          ],
-        ),
+      body: const Center(
+        child: GameWidget(),
       ),
       bottomNavigationBar: const GameNavigation(),
     );

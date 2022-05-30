@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   package_info_plus: ^1.4.2
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -89,39 +90,12 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-    - family: Bangers
+    - family: Freckle Face
       fonts:
-        - asset: assets/fonts/Bangers/Bangers-Regular.ttf
-    - family: Chewy
+        - asset: assets/fonts/Freckle_Face/FreckleFace-Regular.ttf
+    - family: Love Ya Like A Sister
       fonts:
-        - asset: assets/fonts/Chewy/Chewy-Regular.ttf
-    - family: Concert One
-      fonts:
-        - asset: assets/fonts/Concert_One/ConcertOne-Regular.ttf
-    - family: Fredericka the Great
-      fonts:
-        - asset: assets/fonts/Fredericka_the_Great/FrederickatheGreat-Regular.ttf
-    - family: Fredoka One
-      fonts:
-        - asset: assets/fonts/Fredoka_One/FredokaOne-Regular.ttf
-    - family: Monoton
-      fonts:
-        - asset: assets/fonts/Monoton/Monoton-Regular.ttf
-    - family: Permanent Marker
-      fonts:
-        - asset: assets/fonts/Permanent_Marker/PermanentMarker-Regular.ttf
-    - family: Rock Salt
-      fonts:
-        - asset: assets/fonts/Rock_Salt/RockSalt-Regular.ttf
-    - family: Rubik Bubbles
-      fonts:
-        - asset: assets/fonts/Rubik_Bubbles/RubikBubbles-Regular.ttf
+          - asset: assets/fonts/Love_Ya_Like_A_Sister/LoveYaLikeASister-Regular.ttf
     - family: Luckiest Guy
       fonts:
-        - asset: assets/fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf
-    - family: Skranji
-      fonts:
-        - asset: assets/fonts/Skranji/Skranji-Regular.ttf
-    - family: Titan One
-      fonts:
-        - asset: assets/fonts/Titan_One/TitanOne-Regular.ttf
+          - asset: assets/fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf

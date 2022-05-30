@@ -42,7 +42,12 @@ class _ChoicesScreen extends State<ChoicesScreen> {
       data: AppThemes.violetTheme,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Krátké volby'),
+          title: const Text(
+            'Krátké volby',
+            style: TextStyle(
+              fontSize: 35,
+            ),
+          ),
           automaticallyImplyLeading: false,
         ),
         body: Column(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/settings_list_item.dart';
+
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
@@ -10,33 +12,34 @@ class SettingsScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: const Text(
           'Nastavení',
-          style: TextStyle(
-            fontSize: 35,
-          ),
         ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            const Spacer(),
-            const Text('Nějaké nastavení ...'),
-            const Spacer(),
-            Container(
-              margin: const EdgeInsets.only(bottom: 100.0),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  'Zpět',
-                  style: TextStyle(
-                    fontSize: 25,
-                  ),
-                ),
+      body: Column(
+        children: [
+          const Spacer(),
+          Container(
+            margin: const EdgeInsets.all(25),
+            width: double.infinity,
+            child: Column(
+              children: const [
+                SettingsListItem('Velikost hry', 'game_size',),
+                SettingsListItem('Složitost', 'game_complexity',),
+              ],
+            ),
+          ),
+          const Spacer(),
+          Container(
+            margin: const EdgeInsets.only(bottom: 100.0),
+            child: TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Zpět',
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

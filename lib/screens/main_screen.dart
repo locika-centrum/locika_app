@@ -40,7 +40,8 @@ class MainScreen extends StatelessWidget {
                       }
                       return Text(
                         'Verze: ${text ?? ''}',
-                        style: const TextStyle(
+                        style: TextStyle(
+                          fontSize: Theme.of(context).textTheme.bodySmall?.fontSize,
                           color: Colors.grey,
                         ),
                       );

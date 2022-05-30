@@ -12,7 +12,12 @@ class ChatScreen extends StatelessWidget {
       data: AppThemes.violetTheme,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Chat'),
+          title: const Text(
+            'Chat',
+            style: TextStyle(
+              fontSize: 35,
+            ),
+          ),
           automaticallyImplyLeading: false,
         ),
         body: const Center(
